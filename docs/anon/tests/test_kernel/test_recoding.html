@@ -1,0 +1,876 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>anon.tests.test_kernel.test_recoding API documentation</title>
+<meta name="description" content="This module contains tests for recoding" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>anon.tests.test_kernel.test_recoding</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains tests for recoding</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This module contains tests for recoding&#34;&#34;&#34;
+
+from unittest import TestCase
+import datetime
+import pandas as pd
+
+from kernel.recoding import recode, recode_dates, recode_ordinal, recode_nominal, recode_range
+from kernel.util import reduce_string
+
+
+class TestStringGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for string generalization&#34;&#34;&#34;
+
+    def test_generalization(self):
+        postcode = &#39;NE9 5YE&#39;
+        generalized = reduce_string(postcode)
+        self.assertNotEqual(postcode, generalized)
+
+    def test_single_step_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;HP2 7PF&#39;
+        generalized_1 = reduce_string(postcode_1)
+        generalized_2 = reduce_string(postcode_2)
+
+        self.assertNotEqual(postcode_1, postcode_2)
+        self.assertEqual(generalized_1, generalized_2)
+
+    def test_multistep_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;HP2 4DY&#39;
+
+        number_of_generalization_steps = 0
+
+        while(postcode_1 != postcode_2):
+            if (len(postcode_1) &gt; len(postcode_2)):
+                postcode_1 = reduce_string(postcode_1)
+            else:
+                postcode_2 = reduce_string(postcode_2)
+            number_of_generalization_steps = number_of_generalization_steps + 1
+        self.assertEqual(postcode_1, postcode_2)
+        self.assertEqual(number_of_generalization_steps, 6)
+
+    def test_total_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;CF470JD&#39;
+
+        number_of_generalization_steps = 0
+
+        while(postcode_1 != postcode_2):
+            if (len(postcode_1) &gt; len(postcode_2)):
+                postcode_1 = reduce_string(postcode_1)
+            else:
+                postcode_2 = reduce_string(postcode_2)
+            number_of_generalization_steps = number_of_generalization_steps + 1
+
+        self.assertEqual(postcode_1, postcode_2)
+        self.assertEqual(number_of_generalization_steps, 14)
+        self.assertEqual(postcode_1, &#39;*&#39;)
+
+
+class TestRangeGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for range generalization&#34;&#34;&#34;
+
+    def test_range_of_ints_generalization(self):
+        numbers = [2, 5, 27, 12, 3]
+        generalized = recode_range(pd.Series(numbers))
+
+        self.assertIsInstance(generalized, range)
+        self.assertEqual(generalized, range(2, 28))
+
+    def test_range_of_floats_generalization(self):
+        numbers = [8.7, 4.12, 27.3, 18]
+        generalized = recode_range(pd.Series(numbers))
+        self.assertIsInstance(generalized, range)
+        self.assertEqual(generalized, range(4, 29))
+
+
+class TestDateGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for date generalization&#34;&#34;&#34;
+
+    def test_time_generalization(self):
+        date_1 = datetime.datetime(2020, 9, 28, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+
+        self.assertEqual(generalized, datetime.datetime(2020, 9, 28))
+
+    def test_day_generalization(self):
+        date_1 = datetime.datetime(2020, 9, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 9, 1))
+
+    def test_month_generalization(self):
+        date_1 = datetime.datetime(2020, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 1, 1))
+
+    def test_year_generalization(self):
+        date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized, range(2020, 2022))
+
+
+class TestOrdinalGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for ordinal generalization&#34;&#34;&#34;
+
+    def test_ordinal_generalization_raises_exception(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        self.assertRaises(Exception, recode_ordinal, series)
+
+    def test_ordinal_generalization_with_single_category(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=True))
+        generalized = recode_ordinal(series)
+        self.assertEqual(generalized, &#39;A&#39;)
+
+    def test_ordinal_generalization_with_multiple_categories(self):
+        categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+        values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=True))
+        generalized = recode_ordinal(series)
+        self.assertSetEqual(generalized, categories)
+
+
+class TestNominalGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for nominal generalization&#34;&#34;&#34;
+
+    def test_nominal_generalization_raises_exception(self):
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(values)
+        self.assertRaises(Exception, recode_nominal, series)
+
+    def test_nominal_generalization_with_single_value(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        generalized = recode_nominal(series)
+        self.assertEqual(generalized, &#39;A&#39;)
+
+    def test_nominal_generalization_with_multiple_values(self):
+        categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+        values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        generalized = recode_nominal(series)
+        self.assertSetEqual(categories, generalized)
+
+
+class TestGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for main entry point in generalization&#34;&#34;&#34;
+
+    def test_date_generalization(self):
+        date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        series = recode(series)
+        self.assertEqual(len(series.unique()), 1)</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-classes">Classes</h2>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestDateGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestDateGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for date generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestDateGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for date generalization&#34;&#34;&#34;
+
+    def test_time_generalization(self):
+        date_1 = datetime.datetime(2020, 9, 28, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+
+        self.assertEqual(generalized, datetime.datetime(2020, 9, 28))
+
+    def test_day_generalization(self):
+        date_1 = datetime.datetime(2020, 9, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 9, 1))
+
+    def test_month_generalization(self):
+        date_1 = datetime.datetime(2020, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 1, 1))
+
+    def test_year_generalization(self):
+        date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        generalized = recode_dates(series)
+        self.assertEqual(generalized, range(2020, 2022))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_day_generalization"><code class="name flex">
+<span>def <span class="ident">test_day_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_day_generalization(self):
+    date_1 = datetime.datetime(2020, 9, 27, 12, 32, 00)
+    date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+    series = pd.Series([date_1, date_2])
+    generalized = recode_dates(series)
+    self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 9, 1))</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_month_generalization"><code class="name flex">
+<span>def <span class="ident">test_month_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_month_generalization(self):
+    date_1 = datetime.datetime(2020, 10, 27, 12, 32, 00)
+    date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+    series = pd.Series([date_1, date_2])
+    generalized = recode_dates(series)
+    self.assertEqual(generalized.to_timestamp(), datetime.datetime(2020, 1, 1))</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_time_generalization"><code class="name flex">
+<span>def <span class="ident">test_time_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_time_generalization(self):
+    date_1 = datetime.datetime(2020, 9, 28, 12, 32, 00)
+    date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+    series = pd.Series([date_1, date_2])
+    generalized = recode_dates(series)
+
+    self.assertEqual(generalized, datetime.datetime(2020, 9, 28))</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_year_generalization"><code class="name flex">
+<span>def <span class="ident">test_year_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_year_generalization(self):
+    date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+    date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+    series = pd.Series([date_1, date_2])
+    generalized = recode_dates(series)
+    self.assertEqual(generalized, range(2020, 2022))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for main entry point in generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for main entry point in generalization&#34;&#34;&#34;
+
+    def test_date_generalization(self):
+        date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+        date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+        series = pd.Series([date_1, date_2])
+        series = recode(series)
+        self.assertEqual(len(series.unique()), 1)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestGeneralization.test_date_generalization"><code class="name flex">
+<span>def <span class="ident">test_date_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_date_generalization(self):
+    date_1 = datetime.datetime(2021, 10, 27, 12, 32, 00)
+    date_2 = datetime.datetime(2020, 9, 28, 15, 27, 48)
+
+    series = pd.Series([date_1, date_2])
+    series = recode(series)
+    self.assertEqual(len(series.unique()), 1)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestNominalGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestNominalGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for nominal generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestNominalGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for nominal generalization&#34;&#34;&#34;
+
+    def test_nominal_generalization_raises_exception(self):
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(values)
+        self.assertRaises(Exception, recode_nominal, series)
+
+    def test_nominal_generalization_with_single_value(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        generalized = recode_nominal(series)
+        self.assertEqual(generalized, &#39;A&#39;)
+
+    def test_nominal_generalization_with_multiple_values(self):
+        categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+        values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        generalized = recode_nominal(series)
+        self.assertSetEqual(categories, generalized)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_raises_exception"><code class="name flex">
+<span>def <span class="ident">test_nominal_generalization_raises_exception</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_nominal_generalization_raises_exception(self):
+    values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+    series = pd.Series(values)
+    self.assertRaises(Exception, recode_nominal, series)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_multiple_values"><code class="name flex">
+<span>def <span class="ident">test_nominal_generalization_with_multiple_values</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_nominal_generalization_with_multiple_values(self):
+    categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+    values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+    series = pd.Series(pd.Categorical(values, categories, ordered=False))
+    generalized = recode_nominal(series)
+    self.assertSetEqual(categories, generalized)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_single_value"><code class="name flex">
+<span>def <span class="ident">test_nominal_generalization_with_single_value</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_nominal_generalization_with_single_value(self):
+    categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+    values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+    series = pd.Series(pd.Categorical(values, categories, ordered=False))
+    generalized = recode_nominal(series)
+    self.assertEqual(generalized, &#39;A&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestOrdinalGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for ordinal generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestOrdinalGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for ordinal generalization&#34;&#34;&#34;
+
+    def test_ordinal_generalization_raises_exception(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=False))
+        self.assertRaises(Exception, recode_ordinal, series)
+
+    def test_ordinal_generalization_with_single_category(self):
+        categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+        values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=True))
+        generalized = recode_ordinal(series)
+        self.assertEqual(generalized, &#39;A&#39;)
+
+    def test_ordinal_generalization_with_multiple_categories(self):
+        categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+        values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+        series = pd.Series(pd.Categorical(values, categories, ordered=True))
+        generalized = recode_ordinal(series)
+        self.assertSetEqual(generalized, categories)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_raises_exception"><code class="name flex">
+<span>def <span class="ident">test_ordinal_generalization_raises_exception</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_ordinal_generalization_raises_exception(self):
+    categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+    values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+    series = pd.Series(pd.Categorical(values, categories, ordered=False))
+    self.assertRaises(Exception, recode_ordinal, series)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_multiple_categories"><code class="name flex">
+<span>def <span class="ident">test_ordinal_generalization_with_multiple_categories</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_ordinal_generalization_with_multiple_categories(self):
+    categories = set([&#39;A&#39;, &#39;B&#39;, &#39;C&#39;])
+    values = [&#39;B&#39;, &#39;A&#39;, &#39;B&#39;, &#39;C&#39;, &#39;A&#39;]
+    series = pd.Series(pd.Categorical(values, categories, ordered=True))
+    generalized = recode_ordinal(series)
+    self.assertSetEqual(generalized, categories)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_single_category"><code class="name flex">
+<span>def <span class="ident">test_ordinal_generalization_with_single_category</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_ordinal_generalization_with_single_category(self):
+    categories = [&#39;A&#39;, &#39;B&#39;, &#39;C&#39;]
+    values = [&#39;A&#39;, &#39;A&#39;, &#39;A&#39;]
+    series = pd.Series(pd.Categorical(values, categories, ordered=True))
+    generalized = recode_ordinal(series)
+    self.assertEqual(generalized, &#39;A&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestRangeGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestRangeGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for range generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestRangeGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for range generalization&#34;&#34;&#34;
+
+    def test_range_of_ints_generalization(self):
+        numbers = [2, 5, 27, 12, 3]
+        generalized = recode_range(pd.Series(numbers))
+
+        self.assertIsInstance(generalized, range)
+        self.assertEqual(generalized, range(2, 28))
+
+    def test_range_of_floats_generalization(self):
+        numbers = [8.7, 4.12, 27.3, 18]
+        generalized = recode_range(pd.Series(numbers))
+        self.assertIsInstance(generalized, range)
+        self.assertEqual(generalized, range(4, 29))</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_floats_generalization"><code class="name flex">
+<span>def <span class="ident">test_range_of_floats_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_range_of_floats_generalization(self):
+    numbers = [8.7, 4.12, 27.3, 18]
+    generalized = recode_range(pd.Series(numbers))
+    self.assertIsInstance(generalized, range)
+    self.assertEqual(generalized, range(4, 29))</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_ints_generalization"><code class="name flex">
+<span>def <span class="ident">test_range_of_ints_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_range_of_ints_generalization(self):
+    numbers = [2, 5, 27, 12, 3]
+    generalized = recode_range(pd.Series(numbers))
+
+    self.assertIsInstance(generalized, range)
+    self.assertEqual(generalized, range(2, 28))</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestStringGeneralization"><code class="flex name class">
+<span>class <span class="ident">TestStringGeneralization</span></span>
+<span>(</span><span>methodName='runTest')</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Class containing tests for string generalization</p>
+<p>Create an instance of the class that will use the named test
+method when executed. Raises a ValueError if the instance does
+not have a method with the specified name.</p></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">class TestStringGeneralization(TestCase):
+    &#34;&#34;&#34;Class containing tests for string generalization&#34;&#34;&#34;
+
+    def test_generalization(self):
+        postcode = &#39;NE9 5YE&#39;
+        generalized = reduce_string(postcode)
+        self.assertNotEqual(postcode, generalized)
+
+    def test_single_step_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;HP2 7PF&#39;
+        generalized_1 = reduce_string(postcode_1)
+        generalized_2 = reduce_string(postcode_2)
+
+        self.assertNotEqual(postcode_1, postcode_2)
+        self.assertEqual(generalized_1, generalized_2)
+
+    def test_multistep_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;HP2 4DY&#39;
+
+        number_of_generalization_steps = 0
+
+        while(postcode_1 != postcode_2):
+            if (len(postcode_1) &gt; len(postcode_2)):
+                postcode_1 = reduce_string(postcode_1)
+            else:
+                postcode_2 = reduce_string(postcode_2)
+            number_of_generalization_steps = number_of_generalization_steps + 1
+        self.assertEqual(postcode_1, postcode_2)
+        self.assertEqual(number_of_generalization_steps, 6)
+
+    def test_total_generalization(self):
+        postcode_1 = &#39;HP2 7PW&#39;
+        postcode_2 = &#39;CF470JD&#39;
+
+        number_of_generalization_steps = 0
+
+        while(postcode_1 != postcode_2):
+            if (len(postcode_1) &gt; len(postcode_2)):
+                postcode_1 = reduce_string(postcode_1)
+            else:
+                postcode_2 = reduce_string(postcode_2)
+            number_of_generalization_steps = number_of_generalization_steps + 1
+
+        self.assertEqual(postcode_1, postcode_2)
+        self.assertEqual(number_of_generalization_steps, 14)
+        self.assertEqual(postcode_1, &#39;*&#39;)</code></pre>
+</details>
+<h3>Ancestors</h3>
+<ul class="hlist">
+<li>unittest.case.TestCase</li>
+</ul>
+<h3>Methods</h3>
+<dl>
+<dt id="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_generalization"><code class="name flex">
+<span>def <span class="ident">test_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_generalization(self):
+    postcode = &#39;NE9 5YE&#39;
+    generalized = reduce_string(postcode)
+    self.assertNotEqual(postcode, generalized)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_multistep_generalization"><code class="name flex">
+<span>def <span class="ident">test_multistep_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_multistep_generalization(self):
+    postcode_1 = &#39;HP2 7PW&#39;
+    postcode_2 = &#39;HP2 4DY&#39;
+
+    number_of_generalization_steps = 0
+
+    while(postcode_1 != postcode_2):
+        if (len(postcode_1) &gt; len(postcode_2)):
+            postcode_1 = reduce_string(postcode_1)
+        else:
+            postcode_2 = reduce_string(postcode_2)
+        number_of_generalization_steps = number_of_generalization_steps + 1
+    self.assertEqual(postcode_1, postcode_2)
+    self.assertEqual(number_of_generalization_steps, 6)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_single_step_generalization"><code class="name flex">
+<span>def <span class="ident">test_single_step_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_single_step_generalization(self):
+    postcode_1 = &#39;HP2 7PW&#39;
+    postcode_2 = &#39;HP2 7PF&#39;
+    generalized_1 = reduce_string(postcode_1)
+    generalized_2 = reduce_string(postcode_2)
+
+    self.assertNotEqual(postcode_1, postcode_2)
+    self.assertEqual(generalized_1, generalized_2)</code></pre>
+</details>
+</dd>
+<dt id="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_total_generalization"><code class="name flex">
+<span>def <span class="ident">test_total_generalization</span></span>(<span>self)</span>
+</code></dt>
+<dd>
+<div class="desc"></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def test_total_generalization(self):
+    postcode_1 = &#39;HP2 7PW&#39;
+    postcode_2 = &#39;CF470JD&#39;
+
+    number_of_generalization_steps = 0
+
+    while(postcode_1 != postcode_2):
+        if (len(postcode_1) &gt; len(postcode_2)):
+            postcode_1 = reduce_string(postcode_1)
+        else:
+            postcode_2 = reduce_string(postcode_2)
+        number_of_generalization_steps = number_of_generalization_steps + 1
+
+    self.assertEqual(postcode_1, postcode_2)
+    self.assertEqual(number_of_generalization_steps, 14)
+    self.assertEqual(postcode_1, &#39;*&#39;)</code></pre>
+</details>
+</dd>
+</dl>
+</dd>
+</dl>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="anon.tests.test_kernel" href="index.html">anon.tests.test_kernel</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-classes">Classes</a></h3>
+<ul>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestDateGeneralization" href="#anon.tests.test_kernel.test_recoding.TestDateGeneralization">TestDateGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_day_generalization" href="#anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_day_generalization">test_day_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_month_generalization" href="#anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_month_generalization">test_month_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_time_generalization" href="#anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_time_generalization">test_time_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_year_generalization" href="#anon.tests.test_kernel.test_recoding.TestDateGeneralization.test_year_generalization">test_year_generalization</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestGeneralization" href="#anon.tests.test_kernel.test_recoding.TestGeneralization">TestGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestGeneralization.test_date_generalization" href="#anon.tests.test_kernel.test_recoding.TestGeneralization.test_date_generalization">test_date_generalization</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestNominalGeneralization" href="#anon.tests.test_kernel.test_recoding.TestNominalGeneralization">TestNominalGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_raises_exception" href="#anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_raises_exception">test_nominal_generalization_raises_exception</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_multiple_values" href="#anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_multiple_values">test_nominal_generalization_with_multiple_values</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_single_value" href="#anon.tests.test_kernel.test_recoding.TestNominalGeneralization.test_nominal_generalization_with_single_value">test_nominal_generalization_with_single_value</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization" href="#anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization">TestOrdinalGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_raises_exception" href="#anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_raises_exception">test_ordinal_generalization_raises_exception</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_multiple_categories" href="#anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_multiple_categories">test_ordinal_generalization_with_multiple_categories</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_single_category" href="#anon.tests.test_kernel.test_recoding.TestOrdinalGeneralization.test_ordinal_generalization_with_single_category">test_ordinal_generalization_with_single_category</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestRangeGeneralization" href="#anon.tests.test_kernel.test_recoding.TestRangeGeneralization">TestRangeGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_floats_generalization" href="#anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_floats_generalization">test_range_of_floats_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_ints_generalization" href="#anon.tests.test_kernel.test_recoding.TestRangeGeneralization.test_range_of_ints_generalization">test_range_of_ints_generalization</a></code></li>
+</ul>
+</li>
+<li>
+<h4><code><a title="anon.tests.test_kernel.test_recoding.TestStringGeneralization" href="#anon.tests.test_kernel.test_recoding.TestStringGeneralization">TestStringGeneralization</a></code></h4>
+<ul class="">
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_generalization" href="#anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_generalization">test_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_multistep_generalization" href="#anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_multistep_generalization">test_multistep_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_single_step_generalization" href="#anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_single_step_generalization">test_single_step_generalization</a></code></li>
+<li><code><a title="anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_total_generalization" href="#anon.tests.test_kernel.test_recoding.TestStringGeneralization.test_total_generalization">test_total_generalization</a></code></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>

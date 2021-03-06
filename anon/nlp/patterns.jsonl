@@ -1,0 +1,4 @@
+{"label":"MAIL","pattern":[{"like_email":true}]}
+{"label":"URL","pattern":[{"like_url":true}]}
+{"label":"PHONE","pattern":[{"lower":{"REGEX":"((\\+44(\\s\\(0\\)\\s|\\s0\\s|\\s)?)|0)7\\d{3}(\\s)?\\d{6}"}}]}
+{"label":"POSTCODE","pattern":[{"lower":{"REGEX":"[a-z]{1,2}\\d[a-z\\d]?"}},{"lower":{"REGEX":"\\d[a-z]{2}"}}]}

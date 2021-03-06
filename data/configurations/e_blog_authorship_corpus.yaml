@@ -1,0 +1,46 @@
+nlp:
+  model: en_core_web_trf
+  cache: "data/cached_docs/blog_authorship_corpus"
+attributes:
+  id:
+    anonymization_type: direct_identifier
+  gender:
+    type: nominal
+    anonymization_type: quasi_identifier
+  age:
+    type: numerical
+    anonymization_type: quasi_identifier
+  topic:
+    type: nominal
+    anonymization_type: quasi_identifier
+  sign:
+    type: nominal
+    anonymization_type: quasi_identifier
+  date:
+    type: date
+    anonymization_type: quasi_identifier
+    format: "%d,%B,%Y"
+  text:
+    type: text
+    anonymization_type: text
+entities:
+  native:
+    - PERSON
+    - NORP
+    - FAC
+    - ORG
+    - GPE
+    - LOC
+    - PRODUCT
+    - EVENT
+    - WORK_OF_ART
+    - LAW
+    - LANGUAGE
+    - DATE
+    - TIME
+    - PERCENT
+    - MONEY
+    - MAIL
+    - URL
+    - PHONE
+    - POSTCODE

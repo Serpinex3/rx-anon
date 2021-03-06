@@ -1,0 +1,10 @@
+version: "3.8"
+services:
+  app:
+    #build: .
+    image: fabiansinghoferuniulm/anon:latest
+    container_name: anon_instance
+    volumes:
+      - ./data:/home/anon_user/data
+    stdin_open: true
+    tty: true

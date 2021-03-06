@@ -1,0 +1,7 @@
+.git
+*.pdf
+*.ods
+*.tex
+*.bib
+*.pgf
+cached_docs

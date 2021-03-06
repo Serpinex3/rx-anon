@@ -1,0 +1,58 @@
+nlp:
+  model: en_core_web_trf
+  cache: "data/cached_docs/hotel_reviews"
+attributes:
+  Hotel_Name:
+    type: nominal 
+    anonymization_type: direct_identifier
+  Hotel_Address:
+    anonymization_type: direct_identifier
+  Additional_Number_of_Scoring:
+    type: numerical
+    anonymization_type: quasi_identifier
+  Review_Date:
+    type: date
+    anonymization_type: quasi_identifier
+    format: "%m/%d/%Y"
+  Average_Score:
+    type: numerical
+    anonymization_type: quasi_identifier
+  Reviewer_Nationality:
+    type: nominal
+    anonymization_type: quasi_identifier
+  Negative_Review:
+    type: text
+    anonymization_type: text
+  Review_Total_Negative_Word_Counts:
+    type: numerical
+    anonymization_type: insensitive_attribute
+  Total_Number_of_Reviews:
+    type: numerical
+    anonymization_type: quasi_identifier
+  Positive_Review:
+    type: text
+    anonymization_type: text
+  Review_Total_Positive_Word_Counts:
+    type: numerical
+    anonymization_type: insensitive_attribute
+  Total_Number_of_Reviews_Reviewer_Has_Given:
+    type: numerical
+    anonymization_type: quasi_identifier
+  Reviewer_Score:
+    type: numerical
+    anonymization_type: quasi_identifier
+  Tags:
+    type: nominal
+    anonymization_type: insensitive_attribute  
+  days_since_review:
+    type: nominal
+    anonymization_type: quasi_identifier    
+  lat:
+    type: numerical
+    anonymization_type: quasi_identifier
+  lng:
+    type: numerical
+    anonymization_type: quasi_identifier
+entities:
+  native:
+    - GPE

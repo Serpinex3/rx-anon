@@ -1,0 +1,89 @@
+parameters:
+  k: 2
+  strategy: gdf
+  relational_weight: 0
+nlp:
+  model: en_core_web_trf
+  cache: "data/cached_docs/blog_authorship_corpus"
+attributes:
+  id:
+    anonymization_type: direct_identifier # anonymization_type is either direct_identifier, quasi_identifier, insensitive_attribute, or text; default = insensitive_attribute
+  gender:
+    type: nominal
+    anonymization_type: quasi_identifier
+    bias: 0 
+  age:
+    type: numerical
+    anonymization_type: quasi_identifier
+    bias: 0
+    # hierarchy:
+    #   name: '1-100'
+    #   children:
+    #   - name: '1-20'
+    #     children:
+    #       - name: '1-10'
+    #       - name: '11-20'
+    #   - name: '21-40'
+    #     children:
+    #       - name: '21-30'
+    #         children:
+    #           - name: '21-25'
+    #           - name: '26-30'
+    #       - name: '31-40'
+    #         children:
+    #           - name: '31-35'
+    #           - name: '36-40'
+    #   - name: '41-60'
+    #     children:
+    #       - name: '41-50'
+    #       - name: '51-60'
+    #   - name: '61-100'
+    entities:
+      - DATE
+  topic:
+    type: nominal
+    anonymization_type: quasi_identifier
+    entities:
+      - TOPIC
+  sign:
+    type: nominal # type can be nominal, ordinal, numerical, date, or text; default is nominal
+    anonymization_type: quasi_identifier
+    bias: 0 # bias between 0 and 1, default = 0
+    entities:
+      - SIGN
+  date:
+    type: date
+    anonymization_type: quasi_identifier
+    format: "%d,%B,%Y" # Formats apply to this https://docs.python.org/3/library/datetime.html#strftime-and-strptime-behavior
+    bias: 0
+    entities:
+      - DATE
+  text:
+    type: text
+    anonymization_type: text
+entities:
+  native: # NER entities (https://spacy.io/api/annotation#named-entities) + rules for mail, url, and phone
+    - PERSON
+    - NORP
+    - FAC
+    - ORG
+    - GPE
+    - LOC
+    - PRODUCT
+    - EVENT
+    - WORK_OF_ART
+    - LAW
+    - LANGUAGE
+    - DATE
+    - TIME
+    - PERCENT
+    - MONEY
+    - MAIL
+    - URL
+    - PHONE
+    - POSTCODE
+  custom:
+    ORDER: ([A-Z]{3}[0-9]{3}[A-Z]{2})|(\d-\d-[0-9]{12})|(\d-[0-9]{14})|([A-Z]{4}[0-9]{6})|[0-9]{9}
+    JOB: engineer|scientist|biologist
+    SIGN: aries|taurus|gemini|cancer|leo|virgo|libra|scorpio|sagittarius|capricorn|aquarius|pisces
+    TOPIC: science

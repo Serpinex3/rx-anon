@@ -1,0 +1,379 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
+<meta name="generator" content="pdoc 0.9.2" />
+<title>anon.evaluation.information_loss API documentation</title>
+<meta name="description" content="This module contains code to calculate the NCP for heterogeneous datasets" />
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/sanitize.min.css" integrity="sha256-PK9q560IAAa6WVRRh76LtCaI8pjTJ2z11v0miyNNjrs=" crossorigin>
+<link rel="preload stylesheet" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/10up-sanitize.css/11.0.1/typography.min.css" integrity="sha256-7l/o7C8jubJiy74VsKTidCy1yBkRtiUGbVkYBylBqUg=" crossorigin>
+<link rel="stylesheet preload" as="style" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/styles/github.min.css" crossorigin>
+<style>:root{--highlight-color:#fe9}.flex{display:flex !important}body{line-height:1.5em}#content{padding:20px}#sidebar{padding:30px;overflow:hidden}#sidebar > *:last-child{margin-bottom:2cm}.http-server-breadcrumbs{font-size:130%;margin:0 0 15px 0}#footer{font-size:.75em;padding:5px 30px;border-top:1px solid #ddd;text-align:right}#footer p{margin:0 0 0 1em;display:inline-block}#footer p:last-child{margin-right:30px}h1,h2,h3,h4,h5{font-weight:300}h1{font-size:2.5em;line-height:1.1em}h2{font-size:1.75em;margin:1em 0 .50em 0}h3{font-size:1.4em;margin:25px 0 10px 0}h4{margin:0;font-size:105%}h1:target,h2:target,h3:target,h4:target,h5:target,h6:target{background:var(--highlight-color);padding:.2em 0}a{color:#058;text-decoration:none;transition:color .3s ease-in-out}a:hover{color:#e82}.title code{font-weight:bold}h2[id^="header-"]{margin-top:2em}.ident{color:#900}pre code{background:#f8f8f8;font-size:.8em;line-height:1.4em}code{background:#f2f2f1;padding:1px 4px;overflow-wrap:break-word}h1 code{background:transparent}pre{background:#f8f8f8;border:0;border-top:1px solid #ccc;border-bottom:1px solid #ccc;margin:1em 0;padding:1ex}#http-server-module-list{display:flex;flex-flow:column}#http-server-module-list div{display:flex}#http-server-module-list dt{min-width:10%}#http-server-module-list p{margin-top:0}.toc ul,#index{list-style-type:none;margin:0;padding:0}#index code{background:transparent}#index h3{border-bottom:1px solid #ddd}#index ul{padding:0}#index h4{margin-top:.6em;font-weight:bold}@media (min-width:200ex){#index .two-column{column-count:2}}@media (min-width:300ex){#index .two-column{column-count:3}}dl{margin-bottom:2em}dl dl:last-child{margin-bottom:4em}dd{margin:0 0 1em 3em}#header-classes + dl > dd{margin-bottom:3em}dd dd{margin-left:2em}dd p{margin:10px 0}.name{background:#eee;font-weight:bold;font-size:.85em;padding:5px 10px;display:inline-block;min-width:40%}.name:hover{background:#e0e0e0}dt:target .name{background:var(--highlight-color)}.name > span:first-child{white-space:nowrap}.name.class > span:nth-child(2){margin-left:.4em}.inherited{color:#999;border-left:5px solid #eee;padding-left:1em}.inheritance em{font-style:normal;font-weight:bold}.desc h2{font-weight:400;font-size:1.25em}.desc h3{font-size:1em}.desc dt code{background:inherit}.source summary,.git-link-div{color:#666;text-align:right;font-weight:400;font-size:.8em;text-transform:uppercase}.source summary > *{white-space:nowrap;cursor:pointer}.git-link{color:inherit;margin-left:1em}.source pre{max-height:500px;overflow:auto;margin:0}.source pre code{font-size:12px;overflow:visible}.hlist{list-style:none}.hlist li{display:inline}.hlist li:after{content:',\2002'}.hlist li:last-child:after{content:none}.hlist .hlist{display:inline;padding-left:1em}img{max-width:100%}td{padding:0 .5em}.admonition{padding:.1em .5em;margin-bottom:1em}.admonition-title{font-weight:bold}.admonition.note,.admonition.info,.admonition.important{background:#aef}.admonition.todo,.admonition.versionadded,.admonition.tip,.admonition.hint{background:#dfd}.admonition.warning,.admonition.versionchanged,.admonition.deprecated{background:#fd4}.admonition.error,.admonition.danger,.admonition.caution{background:lightpink}</style>
+<style media="screen and (min-width: 700px)">@media screen and (min-width:700px){#sidebar{width:30%;height:100vh;overflow:auto;position:sticky;top:0}#content{width:70%;max-width:100ch;padding:3em 4em;border-left:1px solid #ddd}pre code{font-size:1em}.item .name{font-size:1em}main{display:flex;flex-direction:row-reverse;justify-content:flex-end}.toc ul ul,#index ul{padding-left:1.5em}.toc > ul > li{margin-top:.5em}}</style>
+<style media="print">@media print{#sidebar h1{page-break-before:always}.source{display:none}}@media print{*{background:transparent !important;color:#000 !important;box-shadow:none !important;text-shadow:none !important}a[href]:after{content:" (" attr(href) ")";font-size:90%}a[href][title]:after{content:none}abbr[title]:after{content:" (" attr(title) ")"}.ir a:after,a[href^="javascript:"]:after,a[href^="#"]:after{content:""}pre,blockquote{border:1px solid #999;page-break-inside:avoid}thead{display:table-header-group}tr,img{page-break-inside:avoid}img{max-width:100% !important}@page{margin:0.5cm}p,h2,h3{orphans:3;widows:3}h1,h2,h3,h4,h5,h6{page-break-after:avoid}}</style>
+<script defer src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.1.1/highlight.min.js" integrity="sha256-Uv3H6lx7dJmRfRvH8TH6kJD1TSK1aFcwgx+mdg3epi8=" crossorigin></script>
+<script>window.addEventListener('DOMContentLoaded', () => hljs.initHighlighting())</script>
+</head>
+<body>
+<main>
+<article id="content">
+<header>
+<h1 class="title">Module <code>anon.evaluation.information_loss</code></h1>
+</header>
+<section id="section-intro">
+<p>This module contains code to calculate the NCP for heterogeneous datasets</p>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">&#34;&#34;&#34;This module contains code to calculate the NCP for heterogeneous datasets&#34;&#34;&#34;
+import logging
+import math
+import pandas as pd
+from anytree import AnyNode
+from pandas.api.types import is_categorical_dtype, is_datetime64_any_dtype, is_numeric_dtype
+from kernel.util import flatten_set_valued_series, is_node, is_token_list, must_be_flattened
+from kernel.recoding import recode_range_hierarchical
+
+logger = logging.getLogger(__name__)
+
+
+def calculate_normalized_certainty_penalty(original, anonymized, relational_attributes, textual_attributes_mapping):
+    &#34;&#34;&#34;
+    Takes the original dataset, the anonymized dataset, a list or relational quasi-identifying attributes,
+    and textual attributes and calculates the Normalized Certainty Penalty (NCP).
+    Parameters
+    ----------
+    original: DataFrame
+        The orgininal dataframe.
+    anonymized: DataFrame
+        The anonymized dataframe.
+    relational_attributes: list
+        List containing relational attributes.
+    textual_attributes_mapping: dict
+        Mapping of textual attributes and their helper attributes.
+    Returns
+    -------
+    Tuple
+        Tuple with total information loss, relational information loss, and detailed textual information loss.
+    &#34;&#34;&#34;
+    # Calculate relation information loss
+    relational_information_loss = 0
+    for attribute in [attr for attr in original if attr in relational_attributes]:
+        ncp = __calculate_ncp_attribute(original[attribute], anonymized[attribute])
+        relational_information_loss = relational_information_loss + ncp
+        logger.debug(&#34;Information loss for attribute %s is %4.4f&#34;, attribute, ncp)
+
+    relational_information_loss = relational_information_loss / len(relational_attributes)
+
+    # Calculate textual information loss
+    if len(textual_attributes_mapping) &gt; 0:
+        textual_information_loss = {}
+        total_loss = 0
+
+        # For each original textual attribute
+        for mapping in textual_attributes_mapping:
+            textual_attributes = textual_attributes_mapping[mapping]
+            textual_information_loss[mapping] = {}
+            original_textual_tokens = []
+            anonymized_textual_tokens = []
+
+            # Individual textual information loss per attribute and entity
+            for attribute in textual_attributes:
+                attribute_loss = __calculate_ncp_attribute(original[attribute], anonymized[attribute])
+                textual_information_loss[mapping][attribute] = attribute_loss
+                logger.debug(&#34;Information loss for entity type %s is %4.4f&#34;, attribute, attribute_loss)
+
+            # Total textual information loss per attribute
+            for index in original.index:
+                original_container = []
+                anonymized_container = []
+                for attribute in textual_attributes:
+                    original_for_col = original.at[index, attribute]
+                    anonymized_for_col = anonymized.at[index, attribute]
+                    if original_for_col:
+                        original_container += original_for_col
+                    if anonymized_for_col:
+                        anonymized_container += anonymized_for_col
+                if len(original_container) &gt; 0:
+                    original_textual_tokens.append(original_container)
+                else:
+                    original_textual_tokens.append(None)
+                if len(anonymized_container) &gt; 0:
+                    anonymized_textual_tokens.append(anonymized_container)
+                else:
+                    anonymized_textual_tokens.append(None)
+            attribute_total_loss = __calculate_ncp_attribute(pd.Series(original_textual_tokens, index=original.index), pd.Series(anonymized_textual_tokens, index=anonymized.index))
+
+            # Set total information loss for a single attribute
+            textual_information_loss[mapping][&#34;total&#34;] = attribute_total_loss
+            logger.debug(&#34;Information loss for attribute %s is %4.4f&#34;, mapping, attribute_total_loss)
+            total_loss += attribute_total_loss
+
+        # Set total information loss for all textual attributes
+        textual_information_loss[&#34;total&#34;] = total_loss / len(textual_attributes_mapping)
+        return (relational_information_loss + textual_information_loss[&#34;total&#34;]) / 2, relational_information_loss, textual_information_loss
+    return relational_information_loss, relational_information_loss, None
+
+
+def __calculate_ncp_attribute(original_series, anonymized_series):
+    if must_be_flattened(original_series):
+        original_flattened, original_indexes, is_category = flatten_set_valued_series(original_series)
+        if is_categorical_dtype(original_series) or is_category:
+            original_flattened_series = pd.Series(original_flattened, index=original_indexes, dtype=&#34;category&#34;, name=original_series.name)
+        else:
+            original_flattened_series = pd.Series(original_flattened, index=original_indexes, name=original_series.name)
+        ncp = __calculate_ncp_attribute(original_flattened_series, anonymized_series)
+    elif is_node(anonymized_series):  # Has been anonymized using a hierarchy
+        ncp = __ncp_numerical_hierarchy(original_series, anonymized_series)
+    elif is_datetime64_any_dtype(original_series):
+        ncp = __ncp_date(original_series, anonymized_series)
+    elif is_categorical_dtype(original_series):
+        ncp = __ncp_categorical(original_series, anonymized_series)
+    elif is_numeric_dtype(original_series):
+        ncp = __ncp_numerical(original_series, anonymized_series)
+    elif is_token_list(original_series):
+        ncp = __ncp_tokens(original_series, anonymized_series)
+    else:
+        ncp = __ncp_set_valued(original_series, anonymized_series)
+    return ncp
+
+
+def __ncp_numerical(original_series, anonymized_series):
+    orig_min = math.floor(original_series.min())
+    orig_max = math.ceil(original_series.max())
+    orig_range = orig_max - orig_min + 1
+    acc_information_loss = 0
+    for value in anonymized_series:
+        if not isinstance(value, range):
+            pass
+        else:
+            anonymized_range = len(value)
+            acc_information_loss = acc_information_loss + (anonymized_range / orig_range)
+    normalized_information_loss = acc_information_loss / len(anonymized_series)
+    return normalized_information_loss
+
+
+def __ncp_numerical_hierarchy(original_series, anonymized_series):
+    for value in anonymized_series:
+        if isinstance(value, AnyNode):
+            hierarchy = value.root
+            break
+    worst_generalization = recode_range_hierarchical(original_series, hierarchy)
+    worst_generalization_range = len(worst_generalization.range)
+    acc_information_loss = 0
+    for value in anonymized_series:
+        if not isinstance(value, AnyNode):
+            pass
+        else:
+            anonymized_range = len(value.range)
+            acc_information_loss = acc_information_loss + (anonymized_range / worst_generalization_range)
+    normalized_information_loss = acc_information_loss / len(anonymized_series)
+    return normalized_information_loss
+
+
+def __ncp_categorical(original_series, anonymized_series):
+    orig_n_categories = len(original_series.unique())
+    acc_information_loss = 0
+    for value in anonymized_series:
+        if isinstance(value, frozenset):  # Otherwise it is only one value -&gt; ncp of 0
+            anon_n_categories = len(value)
+            acc_information_loss = acc_information_loss + (anon_n_categories / orig_n_categories)
+    normalized_information_loss = acc_information_loss / len(anonymized_series)
+    return normalized_information_loss
+
+
+def __ncp_set_valued(original_series, anonymized_series):
+    original_flattened, original_indexes, _ = flatten_set_valued_series(original_series)
+    anonymized_flattened, anonymized_indexes, _ = flatten_set_valued_series(anonymized_series)
+    if is_categorical_dtype(original_series):
+        original_flattened_series = pd.Series(original_flattened, index=original_indexes, dtype=&#34;category&#34;, name=original_series.name)
+    else:
+        original_flattened_series = pd.Series(original_flattened, index=original_indexes, name=original_series.name)
+
+    if is_categorical_dtype(anonymized_series):
+        anonymized_flattened_series = pd.Series(anonymized_flattened, index=anonymized_indexes, dtype=&#34;category&#34;, name=anonymized_series.name)
+    else:
+        anonymized_flattened_series = pd.Series(anonymized_flattened, index=anonymized_indexes, name=anonymized_series.name)
+
+    return __calculate_ncp_attribute(original_flattened_series, anonymized_flattened_series)
+
+
+def __ncp_date(original_series, anonymized_series):
+    orig_unique_dates = len(original_series.unique())
+    acc_information_loss = 0
+    for value in anonymized_series:
+        if isinstance(value, range):
+            anon_unique_dates = 0
+            for year in value:
+                anon_unique_dates = anon_unique_dates + len(original_series[original_series.dt.year == year].unique())
+            acc_information_loss = acc_information_loss + (anon_unique_dates / orig_unique_dates)
+        elif isinstance(value, pd.Period):
+            start_date = value.start_time.normalize()
+            end_date = value.end_time.normalize()
+            original_series = original_series.dt.normalize()
+            anon_unique_dates = len(original_series.loc[(
+                original_series &gt;= start_date) &amp; (original_series &lt;= end_date)].unique())
+            acc_information_loss = acc_information_loss + (anon_unique_dates / orig_unique_dates)
+    normalized_information_loss = acc_information_loss / len(anonymized_series)
+    return normalized_information_loss
+
+
+def __ncp_tokens(original_series, anonymized_series):
+    acc_information_loss = 0
+    original_series = original_series.dropna()
+    anonymized_series = anonymized_series.dropna()
+    for index in original_series.index:
+        original = original_series[index]
+        if index not in anonymized_series.index:
+            acc_information_loss = acc_information_loss + 1  # Since no entities remain
+        else:
+            anonymized = anonymized_series[index]
+            anonymized = set(anonymized).intersection(set(original))
+            acc_information_loss = acc_information_loss + (1 - (len(anonymized) / len(original)))
+    normalized_information_loss = acc_information_loss / len(original_series)
+    return normalized_information_loss</code></pre>
+</details>
+</section>
+<section>
+</section>
+<section>
+</section>
+<section>
+<h2 class="section-title" id="header-functions">Functions</h2>
+<dl>
+<dt id="anon.evaluation.information_loss.calculate_normalized_certainty_penalty"><code class="name flex">
+<span>def <span class="ident">calculate_normalized_certainty_penalty</span></span>(<span>original, anonymized, relational_attributes, textual_attributes_mapping)</span>
+</code></dt>
+<dd>
+<div class="desc"><p>Takes the original dataset, the anonymized dataset, a list or relational quasi-identifying attributes,
+and textual attributes and calculates the Normalized Certainty Penalty (NCP).
+Parameters</p>
+<hr>
+<dl>
+<dt><strong><code>original</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>The orgininal dataframe.</dd>
+<dt><strong><code>anonymized</code></strong> :&ensp;<code>DataFrame</code></dt>
+<dd>The anonymized dataframe.</dd>
+<dt><strong><code>relational_attributes</code></strong> :&ensp;<code>list</code></dt>
+<dd>List containing relational attributes.</dd>
+<dt><strong><code>textual_attributes_mapping</code></strong> :&ensp;<code>dict</code></dt>
+<dd>Mapping of textual attributes and their helper attributes.</dd>
+</dl>
+<h2 id="returns">Returns</h2>
+<dl>
+<dt><code>Tuple</code></dt>
+<dd>Tuple with total information loss, relational information loss, and detailed textual information loss.</dd>
+</dl></div>
+<details class="source">
+<summary>
+<span>Expand source code</span>
+</summary>
+<pre><code class="python">def calculate_normalized_certainty_penalty(original, anonymized, relational_attributes, textual_attributes_mapping):
+    &#34;&#34;&#34;
+    Takes the original dataset, the anonymized dataset, a list or relational quasi-identifying attributes,
+    and textual attributes and calculates the Normalized Certainty Penalty (NCP).
+    Parameters
+    ----------
+    original: DataFrame
+        The orgininal dataframe.
+    anonymized: DataFrame
+        The anonymized dataframe.
+    relational_attributes: list
+        List containing relational attributes.
+    textual_attributes_mapping: dict
+        Mapping of textual attributes and their helper attributes.
+    Returns
+    -------
+    Tuple
+        Tuple with total information loss, relational information loss, and detailed textual information loss.
+    &#34;&#34;&#34;
+    # Calculate relation information loss
+    relational_information_loss = 0
+    for attribute in [attr for attr in original if attr in relational_attributes]:
+        ncp = __calculate_ncp_attribute(original[attribute], anonymized[attribute])
+        relational_information_loss = relational_information_loss + ncp
+        logger.debug(&#34;Information loss for attribute %s is %4.4f&#34;, attribute, ncp)
+
+    relational_information_loss = relational_information_loss / len(relational_attributes)
+
+    # Calculate textual information loss
+    if len(textual_attributes_mapping) &gt; 0:
+        textual_information_loss = {}
+        total_loss = 0
+
+        # For each original textual attribute
+        for mapping in textual_attributes_mapping:
+            textual_attributes = textual_attributes_mapping[mapping]
+            textual_information_loss[mapping] = {}
+            original_textual_tokens = []
+            anonymized_textual_tokens = []
+
+            # Individual textual information loss per attribute and entity
+            for attribute in textual_attributes:
+                attribute_loss = __calculate_ncp_attribute(original[attribute], anonymized[attribute])
+                textual_information_loss[mapping][attribute] = attribute_loss
+                logger.debug(&#34;Information loss for entity type %s is %4.4f&#34;, attribute, attribute_loss)
+
+            # Total textual information loss per attribute
+            for index in original.index:
+                original_container = []
+                anonymized_container = []
+                for attribute in textual_attributes:
+                    original_for_col = original.at[index, attribute]
+                    anonymized_for_col = anonymized.at[index, attribute]
+                    if original_for_col:
+                        original_container += original_for_col
+                    if anonymized_for_col:
+                        anonymized_container += anonymized_for_col
+                if len(original_container) &gt; 0:
+                    original_textual_tokens.append(original_container)
+                else:
+                    original_textual_tokens.append(None)
+                if len(anonymized_container) &gt; 0:
+                    anonymized_textual_tokens.append(anonymized_container)
+                else:
+                    anonymized_textual_tokens.append(None)
+            attribute_total_loss = __calculate_ncp_attribute(pd.Series(original_textual_tokens, index=original.index), pd.Series(anonymized_textual_tokens, index=anonymized.index))
+
+            # Set total information loss for a single attribute
+            textual_information_loss[mapping][&#34;total&#34;] = attribute_total_loss
+            logger.debug(&#34;Information loss for attribute %s is %4.4f&#34;, mapping, attribute_total_loss)
+            total_loss += attribute_total_loss
+
+        # Set total information loss for all textual attributes
+        textual_information_loss[&#34;total&#34;] = total_loss / len(textual_attributes_mapping)
+        return (relational_information_loss + textual_information_loss[&#34;total&#34;]) / 2, relational_information_loss, textual_information_loss
+    return relational_information_loss, relational_information_loss, None</code></pre>
+</details>
+</dd>
+</dl>
+</section>
+<section>
+</section>
+</article>
+<nav id="sidebar">
+<h1>Index</h1>
+<div class="toc">
+<ul></ul>
+</div>
+<ul id="index">
+<li><h3>Super-module</h3>
+<ul>
+<li><code><a title="anon.evaluation" href="index.html">anon.evaluation</a></code></li>
+</ul>
+</li>
+<li><h3><a href="#header-functions">Functions</a></h3>
+<ul class="">
+<li><code><a title="anon.evaluation.information_loss.calculate_normalized_certainty_penalty" href="#anon.evaluation.information_loss.calculate_normalized_certainty_penalty">calculate_normalized_certainty_penalty</a></code></li>
+</ul>
+</li>
+</ul>
+</nav>
+</main>
+<footer id="footer">
+<p>Generated by <a href="https://pdoc3.github.io/pdoc"><cite>pdoc</cite> 0.9.2</a>.</p>
+</footer>
+</body>
+</html>
