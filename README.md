@@ -2,7 +2,7 @@
 Repository containing code and experiments to anonymize heterogeneous data.
 
 ## Purpose
-This project is part of my Master's Thesis on "A novel Approach of De-Identification of Heterogeneous Data based on a modified Mondrian Algorithm" at the University of Ulm in cooperation with BT. For more details on the theoretical work, please have a look at my [Thesis](https://gitlab.informatik.uni-ulm.de/dbis/data-science-and-big-data-analytics/teaching/2020ss-thesis-fabian/blob/master/masters_thesis_singhofer.pdf).
+This project is part of my Master's Thesis on "A novel Approach of De-Identification of Heterogeneous Data based on a modified Mondrian Algorithm" at the University of Ulm in cooperation with BT.
 
 ## General Architecture
 ![Overview](https://drive.google.com/uc?export=view&id=1yx8mN1001bUKOqmm309onBZ0Gt4YNLZo)
